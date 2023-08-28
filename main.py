@@ -16,6 +16,8 @@ class Employee:
             return sorted(employees, key=lambda emp: emp.name)
         elif sort_param == 3:  
             return sorted(employees, key=lambda emp: emp.salary)
+        elif sort_param == 4:
+            exit()
         else:
             print("Invalid sorting parameter.")
             return employees
@@ -32,13 +34,14 @@ employees_data = [
 
 employees = [Employee(emp_id, name, age, salary) for emp_id, name, age, salary in employees_data]
 
+while True:
+    print("Enter the sorting parameter:")
+    print("1. Age")
+    print("2. Name")
+    print("3. Salary")
+    print("4. Exit")
+    sort_param = int(input("Choose a sorting parameter: "))
 
-print("Enter the sorting parameter:")
-print("1. Age")
-print("2. Name")
-print("3. Salary")
-sort_param = int(input("Choose a sorting parameter: "))
-
-sorted_employees = Employee.sort_employees(employees, sort_param)
-for employee in sorted_employees:
-    print(employee)
+    sorted_employees = Employee.sort_employees(employees, sort_param)
+    for employee in sorted_employees:
+        print(employee)
